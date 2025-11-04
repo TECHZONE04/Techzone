@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TECHZONE | Catálogo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="icon" href="icono/Kyo-Tux-Phuzion-Device-PSP.256.png">
+  <style>
+    body {
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      padding-top: 100px;
+      scroll-behavior: smooth;
+    }
+    .store-title { font-size: 2rem; font-weight: bold; color: #00ffcc; }
+    header {
+      background-color: #111;
+      padding: 15px 0;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      z-index: 1000;
+    }
+    .nav-link { color: #e0e0e0 !important; }
+    .nav-link:hover, .nav-link.active { color: #00ffcc !important; }
+    h1, h2 { color: #00ffcc; }
+    .card {
+      background-color: rgb(247, 243, 224);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #2c5364;
+      transition: 0.3s;
+    }
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .card-img-top {
+      height: 220px;
+      object-fit: contain;
+      background-color: #0d1b2a;
+      padding: 10px;
+    }
+    .precio { font-size: 1.1rem; font-weight: bold; color: #00ffcc; }
+    .btn-custom {
+      background-color: #00ffcc;
+      color: #111;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: 0.3s;
+    }
+    .btn-custom:hover { background-color: #00e6b8; color: #000; }
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 40px 0;
+      font-size: 16px;
+      color: #b0b0b0;
+      border-top: 1px solid #2c5364;
+      margin-top: 50px;
+    }
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
+      margin: 0 12px;
+      transition: 0.3s;
+    }
+    footer a:hover { color: #00e6b8; }
+    .btn-category { margin: 0 5px 15px 0; }
+    #backToTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #00ffcc;
+      color: #111;
+      border: none;
+      padding: 8px;
+      border-radius: 50%;
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+      z-index: 1000;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #backToTop:hover { background-color: #00e6b8; }
+  </style>
+</head>
+
+<body>
+<header class="d-flex flex-column flex-md-row justify-content-between align-items-center container-fluid">
+  <div class="text-center text-md-start mb-3 mb-md-0">
+    <div class="store-title">TECHZONE</div>
+  </div>
+  <nav class="nav gap-3 justify-content-center justify-content-md-end">
+    <a class="nav-link" href="index.html">Inicio</a>
+    <a class="nav-link active" href="catalogo.html">Catálogo</a>
+    <a class="nav-link" href="ofertas.html">Ofertas</a>
+    <a class="nav-link" href="nosotros.html">Nosotros</a>
+    <a class="nav-link" href="contacto.html">Contacto</a>
+  </nav>
+</header>
+
+<main>
+  <div class="text-center my-4">
+    <h1>Catálogo de Productos</h1>
+    <p>Explora nuestra variedad de tecnología</p>
+  </div>
+
+  <div class="text-center mb-4">
+    <button class="btn btn-custom btn-category" onclick="filtrar('todos')">Todos</button>
+    <button class="btn btn-custom btn-category" onclick="filtrar('celulares')">Celulares</button>
+    <button class="btn btn-custom btn-category" onclick="filtrar('laptops')">Laptops</button>
+    <button class="btn btn-custom btn-category" onclick="filtrar('componentes')">Componentes</button>
+    <button class="btn btn-custom btn-category" onclick="filtrar('accesorios')">Accesorios</button>
+  </div>
+
+  <!-- ===== CONTENEDOR DE PRODUCTOS ===== -->
+  <section class="container my-5">
+    <div class="row g-4" id="productos">
+    <!-- ===== CELULARES ===== -->
+    <div class="col-md-4 producto" data-categoria="celulares">
+      <div class="card h-100">
+        <img src="https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111846_sp875-sp876-iphone14-pro-promax.png" class="card-img-top" alt="iPhone 14 Pro Max">
+        <div class="card-body">
+          <h5 class="card-title">iPhone 14 Pro Max</h5>
+          <p class="card-text">Pantalla Super Retina XDR 6.7”, cámara triple 48MP, Chip A16 Bionic, batería de larga duración.</p>
+          <p class="precio">USD 1,199</p>
+          <button class="btn btn-custom" onclick="comprar('iPhone 14 Pro Max')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 producto" data-categoria="celulares">
+      <div class="card h-100">
+        <img src="https://www.tiendaamiga.com.bo/media/catalog/product/cache/deb88dadd509903c96aaa309d3e790dc/5/y/5yeyegg.png" class="card-img-top" alt="Samsung Galaxy S23 Ultra">
+        <div class="card-body">
+          <h5 class="card-title">Samsung Galaxy S23 Ultra</h5>
+          <p class="card-text">Pantalla AMOLED 6.8” 120Hz, cámara principal 200MP, Snapdragon 8 Gen 2, S-Pen integrado.</p>
+          <p class="precio">USD 1,099</p>
+          <button class="btn btn-custom" onclick="comprar('Samsung Galaxy S23 Ultra')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 producto" data-categoria="celulares">
+      <div class="card h-100">
+        <img src="https://i.blogs.es/8cea83/pixel-8-pro-diseno/450_1000.jpeg" class="card-img-top" alt="Google Pixel 8">
+        <div class="card-body">
+          <h5 class="card-title">Google Pixel 8</h5>
+          <p class="card-text">Pantalla OLED 6.2”, cámara 50MP, procesador Tensor G3.</p>
+          <p class="precio">USD 799</p>
+          <button class="btn btn-custom" onclick="comprar('Google Pixel 8')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+        <!-- Celular 4 -->
+        <div class="col-md-4 producto" data-categoria="celulares">
+          <div class="card h-100">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxfGS5kIiaVv-1qf4lRPQySlJdUd7_XFKe3Q&s" class="card-img-top" alt="Xiaomi 13">
+            <div class="card-body">
+              <h5 class="card-title">Xiaomi 13</h5>
+              <p class="card-text">Pantalla AMOLED 6.36”, Snapdragon 8 Gen 2, batería 4500mAh.</p>
+              <p class="precio">USD 699</p>
+              <button class="btn btn-custom" onclick="comprar('Xiaomi 13')">Comprar</button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Celular 5 -->
+        <div class="col-md-4 producto" data-categoria="celulares">
+          <div class="card h-100">
+            <img src="https://images-cdn.ubuy.co.in/6537684168d9936381022d3b-oneplus-11-5g-dual-pbh110-256gb-12gb-ram.jpg" class="card-img-top" alt="OnePlus 11">
+            <div class="card-body">
+              <h5 class="card-title">OnePlus 11</h5>
+              <p class="card-text">Pantalla AMOLED 6.7”, procesador Snapdragon 8 Gen 2, cámara 50MP, carga rápida 100W.</p>
+              <p class="precio">USD 699</p>
+              <button class="btn btn-custom" onclick="comprar('OnePlus 11')">Comprar</button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Celular 6 -->
+        <div class="col-md-4 producto" data-categoria="celulares">
+          <div class="card h-100">
+            <img src="https://i.blogs.es/45176e/motorola-edge-40-1/450_1000.jpeg" class="card-img-top" alt="Motorola Edge 40">
+            <div class="card-body">
+              <h5 class="card-title">Motorola Edge 40</h5>
+              <p class="card-text">Pantalla OLED 6.55”, cámara 50MP, batería 4400mAh, sistema Android 14.</p>
+              <p class="precio">USD 599</p>
+              <button class="btn btn-custom" onclick="comprar('Motorola Edge 40')">Comprar</button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Celular 7 -->
+        <div class="col-md-4 producto" data-categoria="celulares">
+          <div class="card h-100">
+            <img src="https://i.blogs.es/e02936/realmegt-1/450_1000.jpeg" class="card-img-top" alt="Realme GT2">
+            <div class="card-body">
+              <h5 class="card-title">Realme GT2</h5>
+              <p class="card-text">Pantalla AMOLED 6.62”, Snapdragon 8+ Gen 1, cámara 50MP, carga 65W.</p>
+              <p class="precio">USD 549</p>
+              <button class="btn btn-custom" onclick="comprar('Realme GT2')">Comprar</button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Celular 8 -->
+        <div class="col-md-4 producto" data-categoria="celulares">
+          <div class="card h-100">
+            <img src="https://samsung-bolivia.s3.amazonaws.com/product-family-item-image-image/original/product-family-item-image-image_u79p0D142VxWh3KzOyeQ.png" class="card-img-top" alt="Samsung Galaxy A54">
+            <div class="card-body">
+              <h5 class="card-title">Samsung Galaxy A54</h5>
+              <p class="card-text">Pantalla Super AMOLED 6.4”, cámara 50MP, batería 5000mAh.</p>
+              <p class="precio">USD 449</p>
+              <button class="btn btn-custom" onclick="comprar('Samsung Galaxy A54')">Comprar</button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Celular 9 -->
+        <div class="col-md-4 producto" data-categoria="celulares">
+          <div class="card h-100">
+            <img src="https://mac-center.com/cdn/shop/files/iPhone_13_mini_Starlight_PDP_Image_position-1A__CLCO_v1_12c640ec-89ec-4712-ba3f-6e6fca9dd48f.jpg?v=1700286001&width=823" class="card-img-top" alt="iPhone 13">
+            <div class="card-body">
+              <h5 class="card-title">iPhone 13</h5>
+              <p class="card-text">Pantalla Super Retina XDR 6.1”, cámara dual 12MP, Chip A15 Bionic, batería duradera.</p>
+              <p class="precio">USD 899</p>
+              <button class="btn btn-custom" onclick="comprar('iPhone 13')">Comprar</button>
+            </div>
+          </div>
+        </div>
+    
+        <!-- Celular 10 -->
+        <div class="col-md-4 producto" data-categoria="celulares">
+          <div class="card h-100">
+            <img src="https://tecnocomprasbolivia.com/cdn/shop/files/ce504xia10-xiaomi-redmi-note-12-eu-128gb-verde-menta-telefono-celular_1200x1200.png?v=1696093511" class="card-img-top" alt="Xiaomi Redmi Note 12">
+            <div class="card-body">
+              <h5 class="card-title">Xiaomi Redmi Note 12</h5>
+              <p class="card-text">Pantalla AMOLED 6.43”, procesador Snapdragon 685, cámara 48MP, batería 5000mAh.</p>
+              <p class="precio">USD 299</p>
+              <button class="btn btn-custom" onclick="comprar('Xiaomi Redmi Note 12')">Comprar</button>
+            </div>
+          </div>
+        </div>
+<!-- ===== SECCIÓN LAPTOPS ===== -->
+    <!-- Laptop 1 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://i.blogs.es/e1fe2b/apple-macbook-pro-16/1366_2000.jpg" class="card-img-top" alt="MacBook Pro 16” M2">
+        <div class="card-body">
+          <h5 class="card-title">MacBook Pro 16” M2</h5>
+          <p class="card-text">Chip Apple M2 Pro, RAM 16GB, SSD 512GB, pantalla Liquid Retina XDR.</p>
+          <p class="precio">USD 2,499</p>
+          <button class="btn btn-custom" onclick="comprar('MacBook Pro 16” M2')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 2 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://m.media-amazon.com/images/I/71sesDsw95L.jpg" class="card-img-top" alt="Acer Aspire 5">
+        <div class="card-body">
+          <h5 class="card-title">Acer Aspire 5</h5>
+          <p class="card-text">Ryzen 5, RAM 8GB, SSD 512GB, pantalla Full HD 15.6”.</p>
+          <p class="precio">USD 650</p>
+          <button class="btn btn-custom" onclick="comprar('Acer Aspire 5')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 3 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://m.media-amazon.com/images/I/71JKYxLER5L._AC_SL1500_.jpg" class="card-img-top" alt="Dell XPS 13">
+        <div class="card-body">
+          <h5 class="card-title">Dell XPS 13</h5>
+          <p class="card-text">Intel i7 13ª Gen, RAM 16GB, SSD 1TB, pantalla 13.4” 4K UHD+</p>
+          <p class="precio">USD 1,299</p>
+          <button class="btn btn-custom" onclick="comprar('Dell XPS 13')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 4 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://images-cdn.ubuy.co.in/63628697e9c3fe717f171e0c-new-2018-hp-spectre-x360-2-in-1.jpg" class="card-img-top" alt="HP Spectre x360">
+        <div class="card-body">
+          <h5 class="card-title">HP Spectre x360</h5>
+          <p class="card-text">Intel i7, RAM 16GB, SSD 512GB, pantalla táctil convertible 13.3”.</p>
+          <p class="precio">USD 1,099</p>
+          <button class="btn btn-custom" onclick="comprar('HP Spectre x360')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 5 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://p4-ofp.static.pub/fes/cms/2022/06/24/ttgveefybrbcjm4gvi6rokr7blojv4302251.png" class="card-img-top" alt="Lenovo Legion 5">
+        <div class="card-body">
+          <h5 class="card-title">Lenovo Legion 5</h5>
+          <p class="card-text">Ryzen 7 6800H, RAM 16GB, SSD 1TB, RTX 3060, pantalla 15.6” Full HD 165Hz.</p>
+          <p class="precio">USD 1,199</p>
+          <button class="btn btn-custom" onclick="comprar('Lenovo Legion 5')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 6 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2csO-4tPNSPIJmfR1FZabpwBXmHVwmxE9pg&s" class="card-img-top" alt="Asus ZenBook 14">
+        <div class="card-body">
+          <h5 class="card-title">Asus ZenBook 14</h5>
+          <p class="card-text">Intel i5, RAM 8GB, SSD 512GB, pantalla 14” Full HD, ultradelgada.</p>
+          <p class="precio">USD 799</p>
+          <button class="btn btn-custom" onclick="comprar('Asus ZenBook 14')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 7 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://m.media-amazon.com/images/I/51SFMv5zuOL._AC_SY200_QL15_.jpg" class="card-img-top" alt="Microsoft Surface Laptop 5">
+        <div class="card-body">
+          <h5 class="card-title">Microsoft Surface Laptop 5</h5>
+          <p class="card-text">Intel i7, RAM 16GB, SSD 512GB, pantalla táctil 15”.</p>
+          <p class="precio">USD 1,299</p>
+          <button class="btn btn-custom" onclick="comprar('Microsoft Surface Laptop 5')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 8 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://m.media-amazon.com/images/I/81B54EwuLUL.jpg" class="card-img-top" alt="Razer Blade 15">
+        <div class="card-body">
+          <h5 class="card-title">Razer Blade 15</h5>
+          <p class="card-text">Intel i7, RAM 16GB, RTX 3070, pantalla 15.6” QHD 165Hz.</p>
+          <p class="precio">USD 2,199</p>
+          <button class="btn btn-custom" onclick="comprar('Razer Blade 15')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 9 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS3D1jdqnHSTaIJSbSwoTPL0la4cZ05i9-MQ&s" class="card-img-top" alt="Dell G15">
+        <div class="card-body">
+          <h5 class="card-title">Dell G15</h5>
+          <p class="card-text">Intel i7, RAM 16GB, RTX 3060, pantalla 15.6” FHD 120Hz.</p>
+          <p class="precio">USD 1,099</p>
+          <button class="btn btn-custom" onclick="comprar('Dell G15')">Comprar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Laptop 10 -->
+    <div class="col-md-4 producto" data-categoria="laptops">
+      <div class="card h-100">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTziEIsFh4elLdGiDxka-6vaJ3puAcUdihWPw&s" class="card-img-top" alt="HP Pavilion 15">
+        <div class="card-body">
+          <h5 class="card-title">HP Pavilion 15</h5>
+          <p class="card-text">Intel i5, RAM 8GB, SSD 512GB, pantalla 15.6” Full HD, diseño elegante.</p>
+          <p class="precio">USD 699</p>
+          <button class="btn btn-custom" onclick="comprar('HP Pavilion 15')">Comprar</button>
+        </div>
+      </div>
+    </div>
+<!-- ===== SECCIÓN COMPONENTES ===== -->
+<!-- Componente 1 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQp_g8vXdTOg7SzkLF915NQmf1wmGIrWq_Mfw&s" class="card-img-top" alt="NVIDIA RTX 4070 Ti">
+    <div class="card-body">
+      <h5 class="card-title">NVIDIA RTX 4070 Ti</h5>
+      <p class="card-text">12GB GDDR6X, DLSS 3 y Ray Tracing, ideal para gaming 4K.</p>
+      <p class="precio">USD 799</p>
+      <button class="btn btn-custom" onclick="comprar('NVIDIA RTX 4070 Ti')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 2 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://www.amd.com/content/dam/amd/en/images/products/processors/ryzen/2505503-ryzen-9-7900x.jpg" class="card-img-top" alt="AMD Ryzen 9 7900X">
+    <div class="card-body">
+      <h5 class="card-title">AMD Ryzen 9 7900X</h5>
+      <p class="card-text">12 núcleos, 24 hilos, 4.7GHz turbo, ideal para gaming y edición.</p>
+      <p class="precio">USD 549</p>
+      <button class="btn btn-custom" onclick="comprar('AMD Ryzen 9 7900X')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 3 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://m.media-amazon.com/images/I/61EVf-QxpvL._AC_SL1500_.jpg" class="card-img-top" alt="Corsair Vengeance 16GB DDR5">
+    <div class="card-body">
+      <h5 class="card-title">Corsair Vengeance 16GB DDR5</h5>
+      <p class="card-text">Memoria RAM DDR5 5600MHz, ideal para gaming y multitarea.</p>
+      <p class="precio">USD 129</p>
+      <button class="btn btn-custom" onclick="comprar('Corsair Vengeance 16GB DDR5')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 4 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZNi0Ina8o7RZsazSLGY_AQMbVfJOkIcwuNQ&s" class="card-img-top" alt="Samsung 1TB SSD">
+    <div class="card-body">
+      <h5 class="card-title">Samsung 1TB SSD</h5>
+      <p class="card-text">Disco sólido NVMe, velocidad de lectura 3500MB/s, ideal para gaming.</p>
+      <p class="precio">USD 149</p>
+      <button class="btn btn-custom" onclick="comprar('Samsung 1TB SSD')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 5 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://storage-asset.msi.com/global/picture/image/feature/mb/B650/B650-GAMING-PLUS-WIFI/modelblock-gaming-pd.png" class="card-img-top" alt="MSI B650 Motherboard">
+    <div class="card-body">
+      <h5 class="card-title">MSI B650 Motherboard</h5>
+      <p class="card-text">Compatible con AMD Ryzen, soporte DDR5, PCIe 5.0, RGB.</p>
+      <p class="precio">USD 229</p>
+      <button class="btn btn-custom" onclick="comprar('MSI B650 Motherboard')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 6 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://m.media-amazon.com/images/I/715wWDab8pL._UF1000,1000_QL80_.jpg" class="card-img-top" alt="Cooler Master CPU Cooler">
+    <div class="card-body">
+      <h5 class="card-title">Cooler Master CPU Cooler</h5>
+      <p class="card-text">Sistema de refrigeración líquida para procesadores de alto rendimiento.</p>
+      <p class="precio">USD 99</p>
+      <button class="btn btn-custom" onclick="comprar('Cooler Master CPU Cooler')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 7 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqlLPnGw_sufXngKDHC7s3-8Y5V3HOlpvjow&s" class="card-img-top" alt="Seagate 2TB HDD">
+    <div class="card-body">
+      <h5 class="card-title">Seagate 2TB HDD</h5>
+      <p class="card-text">Disco duro de alta capacidad, ideal para almacenamiento de datos y juegos.</p>
+      <p class="precio">USD 79</p>
+      <button class="btn btn-custom" onclick="comprar('Seagate 2TB HDD')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 8 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://dlcdnwebimgs.asus.com/files/media/d76cb91f-7c30-488c-9ee6-7631abb9ea3a/v1/img/aura/pd.png" class="card-img-top" alt="ASUS ROG Strix GPU">
+    <div class="card-body">
+      <h5 class="card-title">ASUS ROG Strix GPU</h5>
+      <p class="card-text">Tarjeta gráfica potente para gaming, 12GB GDDR6X, con iluminación RGB.</p>
+      <p class="precio">USD 899</p>
+      <button class="btn btn-custom" onclick="comprar('ASUS ROG Strix GPU')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 9 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://m.media-amazon.com/images/I/81k55rfk1iL._UF1000,1000_QL80_.jpg" class="card-img-top" alt="Corsair RM850x">
+    <div class="card-body">
+      <h5 class="card-title">Corsair RM850x</h5>
+      <p class="card-text">Fuente de poder 850W, certificación 80 PLUS Gold, modular y silenciosa.</p>
+      <p class="precio">USD 139</p>
+      <button class="btn btn-custom" onclick="comprar('Corsair RM850x')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Componente 10 -->
+<div class="col-md-4 producto" data-categoria="componentes">
+  <div class="card h-100">
+    <img src="https://nzxt.com/cdn/shop/files/h5-elite-right-side-black.png?v=1744789660&width=2000" class="card-img-top" alt="NZXT H510 Case">
+    <div class="card-body">
+      <h5 class="card-title">NZXT H510 Case</h5>
+      <p class="card-text">Gabinete ATX de alta calidad, diseño minimalista, con buen flujo de aire.</p>
+      <p class="precio">USD 79</p>
+      <button class="btn btn-custom" onclick="comprar('NZXT H510 Case')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECCIÓN ACCESORIOS ===== -->
+<!-- Accesorio 1 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://m.media-amazon.com/images/I/51K1mE5uVyL._UF894,1000_QL80_.jpg" class="card-img-top" alt="Teclado Logitech G Pro">
+    <div class="card-body">
+      <h5 class="card-title">Teclado Mecánico Logitech G Pro</h5>
+      <p class="card-text">Switches táctiles, RGB personalizable, diseño compacto y conexión USB-C.</p>
+      <p class="precio">USD 129</p>
+      <button class="btn btn-custom" onclick="comprar('Teclado Logitech G Pro')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accesorio 2 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRc889ojRicO2XCXUHO2dIAO3p7eDcMI03d2w&s" class="card-img-top" alt="Mouse Razer DeathAdder V2">
+    <div class="card-body">
+      <h5 class="card-title">Mouse Razer DeathAdder V2</h5>
+      <p class="card-text">Sensor óptico 20,000 DPI, diseño ergonómico y RGB personalizable.</p>
+      <p class="precio">USD 69</p>
+      <button class="btn btn-custom" onclick="comprar('Mouse Razer DeathAdder V2')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accesorio 3 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://images-cdn.ubuy.co.in/67ebd77e6c0c188097080013-hyperx-cloud-ii-gaming-headset.jpg" class="card-img-top" alt="Auriculares HyperX Cloud II">
+    <div class="card-body">
+      <h5 class="card-title">Auriculares HyperX Cloud II</h5>
+      <p class="card-text">Sonido envolvente 7.1, almohadillas cómodas, micro desmontable.</p>
+      <p class="precio">USD 99</p>
+      <button class="btn btn-custom" onclick="comprar('Auriculares HyperX Cloud II')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accesorio 4 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://m.media-amazon.com/images/I/417kfBG7D-L._UF894,1000_QL80_.jpg" class="card-img-top" alt="Mousepad SteelSeries QcK">
+    <div class="card-body">
+      <h5 class="card-title">Mousepad SteelSeries QcK</h5>
+      <p class="card-text">Superficie de alta precisión para gaming.</p>
+      <p class="precio">USD 29</p>
+      <button class="btn btn-custom" onclick="comprar('Mousepad SteelSeries QcK')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accesorio 5 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt_8L8JEI2LATRvc3Naw8gwCeZIcCffySTxQ&s" class="card-img-top" alt="Cargador Anker 65W">
+    <div class="card-body">
+      <h5 class="card-title">Cargador Anker 65W</h5>
+      <p class="card-text">Carga rápida para laptops y celulares USB-C.</p>
+      <p class="precio">USD 39</p>
+      <button class="btn btn-custom" onclick="comprar('Cargador Anker 65W')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accesorio 6 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOux4xPx67B3OnDxjDlNlRkvE8msB70vjl7Q&s" class="card-img-top" alt="Auriculares Sony WH-1000XM5">
+    <div class="card-body">
+      <h5 class="card-title">Auriculares Sony WH-1000XM5</h5>
+      <p class="card-text">Cancelación de ruido, sonido premium y comodidad.</p>
+      <p class="precio">USD 349</p>
+      <button class="btn btn-custom" onclick="comprar('Auriculares Sony WH-1000XM5')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accesorio 7 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://www.tiendaamiga.com.bo/media/catalog/product/cache/deb88dadd509903c96aaa309d3e790dc/c/_/c_mara.jpg" class="card-img-top" alt="Cámara Web Logitech C920">
+    <div class="card-body">
+      <h5 class="card-title">Cámara Web Logitech C920</h5>
+      <p class="card-text">1080p Full HD, ideal para streaming y videollamadas.</p>
+      <p class="precio">USD 79</p>
+      <button class="btn btn-custom" onclick="comprar('Cámara Web Logitech C920')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accesorio 8 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://i0.wp.com/bitstorebolivia.com/wp-content/uploads/2023/07/Anker-hub6-HDMI-2-USB-USB-C-PD-3.5-1.jpg?fit=1080%2C1080&ssl=1" class="card-img-top" alt="Hub USB-C Anker">
+    <div class="card-body">
+      <h5 class="card-title">Hub USB-C Anker</h5>
+      <p class="card-text">Expansión de puertos USB-C y USB-A, HDMI y lector SD.</p>
+      <p class="precio">USD 49</p>
+      <button class="btn btn-custom" onclick="comprar('Hub USB-C Anker')">Comprar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Accesorio 9 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://app.compucenter.store/products/Jz1XTujbGSkFjf58gsDEX8w2aTDD5Q44gm4GIRjC.png" class="card-img-top" alt="Base Refrigerante para Laptop">
+    <div class="card-body">
+      <h5 class="card-title">Base Refrigerante para Laptop</h5>
+      <p class="card-text">Disipación de calor, ventiladores silenciosos y ajuste de altura.</p>
+      <p class="precio">USD 39</p>
+      <button class="btn btn-custom" onclick="comprar('Base Refrigerante para Laptop')">Comprar</button>
+    </div>
+  </div>
+</div>
+<!-- Accesorio 10 -->
+<div class="col-md-4 producto" data-categoria="accesorios">
+  <div class="card h-100">
+    <img src="https://media.wired.com/photos/67896cc4ad521e22ddd81136/3:2/w_2560%2Cc_limit/Nintendo-Switch-2-screen-joy-cons-SOURCE-Nintendo.jpg" class="card-img-top" alt="Nintendo Switch 2">
+    <div class="card-body">
+      <h5 class="card-title">Nintendo Switch 2</h5>
+      <p class="card-text">Consola portátil y de sobremesa híbrida, con gráficos mejorados y nuevos controles.</p>
+      <p class="precio">USD 499</p>
+      <button class="btn btn-custom" onclick="comprar('Nintendo Switch 2')">Comprar</button>
+    </div>
+  </div>
+</div>
+  </div>
+</section>
+
+
+<footer>
+  <p>&copy; 2025 TECHZONE - Todos los derechos reservados.</p>
+  <div>
+    <a href="https://www.facebook.com/share/1789cKCmwR/">Facebook</a> |
+    <a href="https://www.instagram.com/techzone_0107?igsh=bmEwYjRjem82ZHpl">Instagram</a> |
+    <a href="http://tiktok.com/@tech.zone54">TikTok</a> |
+    <a href="https://wa.me/59162970577">WhatsApp</a>
+  </div>
+</footer>
+
+<button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<!-- Modal Carrito -->
+<div class="modal fade" id="cartModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light">
+      <div class="modal-header">
+        <h5 class="modal-title">🛒 Carrito</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <ul id="cartItems" class="list-unstyled"></ul>
+        <hr>
+        <p>Total: USD <span id="cartTotal">0</span></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-sm btn-danger" onclick="vaciarCarrito()">Vaciar</button>
+        <button class="btn btn-sm btn-success" onclick="abrirCheckout()">Pagar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Checkout -->
+<div class="modal fade" id="checkoutModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-light">
+      <div class="modal-header">
+        <h5 class="modal-title">💳 Checkout</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="checkoutForm">
+          <div class="mb-2"><label>Nombre</label><input type="text" class="form-control" name="nombre" required></div>
+          <div class="mb-2"><label>Email</label><input type="email" class="form-control" name="email" required></div>
+          <div class="mb-2"><label>Dirección</label><input type="text" class="form-control" name="direccion" required></div>
+          <button class="btn btn-success w-100 mt-2" type="submit">Finalizar Pago</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 TECHZONE. Todos los derechos reservados
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+emailjs.init("TU_USER_ID_AQUI"); // reemplazar con tu ID EmailJS
+let carrito=[], total=0;
+
+function comprar(nombre, precio){ carrito.push({nombre,precio}); total+=precio; actualizarCarrito(); new bootstrap.Modal(document.getElementById('cartModal')).show(); }
+function actualizarCarrito(){ 
+  const lista=document.getElementById('cartItems'); lista.innerHTML=''; 
+  carrito.forEach((item,i)=>{ lista.innerHTML+=`<li>${item.nombre} - USD ${item.precio} <button class="btn btn-sm btn-outline-danger ms-2" onclick="eliminar(${i})">✖</button></li>`; });
+  document.getElementById('cartTotal').textContent=total.toFixed(2);
+}
+function eliminar(i){ total-=carrito[i].precio; carrito.splice(i,1); actualizarCarrito(); }
+function vaciarCarrito(){ carrito=[]; total=0; actualizarCarrito(); }
+function abrirCheckout(){ if(carrito.length===0){alert("Carrito vacío"); return;} new bootstrap.Modal(document.getElementById('cartModal')).hide(); new bootstrap.Modal(document.getElementById('checkoutModal')).show(); }
+
+document.getElementById('checkoutForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const form=this;
+  const message=carrito.map(i=>`${i.nombre} - USD ${i.precio}`).join("\n");
+  const totalMessage=`Total: USD ${total.toFixed(2)}`;
+  const params={ nombre:form.nombre.value,email:form.email.value,direccion:form.direccion.value,pedido: message+"\n"+totalMessage };
+  
+  emailjs.send("service_xxx","template_xxx",params)
+    .then(()=>{ alert("✅ Pedido enviado!"); vaciarCarrito(); form.reset(); new bootstrap.Modal(document.getElementById('checkoutModal')).hide(); },
+          err=>{ alert("❌ Error al enviar: "+err.text); });
+
+  const phone="+59162970577";
+  window.open(`https://wa.me/${phone}?text=${encodeURIComponent("Pedido TECHZONE:\n"+message+"\n"+totalMessage)}`, '_blank');
+});
+</script>
+</body>
+</html>
